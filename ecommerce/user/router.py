@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from ecommerce import db
 from . import models
 from . import schema
+from ecommerce.auth.jwt import get_current_user
 
 router = APIRouter(
     tags=['Users'],
@@ -23,13 +24,13 @@ def create_user_registration(request: schema.User, database: Session = Depends(d
 
 
 @router.get('/', response_model=List[schema.DisplayUser])
-def get_all_user(database: Session = Depends(db.get_db)):
+def get_all_user(database: Session = Depends(db.get_db), current_user: schema.User = Depends(get_current_user)):
     users = database.query(models.User).all()
     return users
 
 
 @router.get('/{user_id}', response_model=schema.DisplayUser)
-def get_user_by_id(user_id: int, database: Session = Depends(db.get_db)):
+def get_user_by_id(user_id: int, database: Session = Depends(db.get_db), current_user: schema.User = Depends(get_current_user)):
     user_info = database.query(models.User).get(user_id)
     if not user_info:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Data Not Found !")
@@ -37,6 +38,6 @@ def get_user_by_id(user_id: int, database: Session = Depends(db.get_db)):
 
 
 @router.delete('/{user_id}', status_code=status.HTTP_204_NO_CONTENT, response_class=Response)
-def delete_user_by_id(user_id: int, database: Session = Depends(db.get_db)):
+def delete_user_by_id(user_id: int, database: Session = Depends(db.get_db), current_user: schema.User = Depends(get_current_user)):
     database.query(models.User).filter(models.User.id == user_id).delete()
     database.commit()

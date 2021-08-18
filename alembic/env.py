@@ -22,9 +22,9 @@ fileConfig(config.config_file_name)
 
 from ecommerce.db import Base # noqa
 from ecommerce.user.models import User # noqa
-from ecommerce.products.models import Category # noqa
-from ecommerce.products.models import Product # noqa
-
+from ecommerce.products.models import Category, Product # noqa
+from ecommerce.orders.models import Order, OrderDetails # noqa
+from ecommerce.cart.models import Cart, CartItems # noqa
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
