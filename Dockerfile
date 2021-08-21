@@ -9,7 +9,7 @@ RUN addgroup --system app && adduser --system --group app
 
 # create the appropriate directories
 ENV HOME=/home/app
-ENV APP_HOME=/home/app/web
+ENV APP_HOME=/home/app/code
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
@@ -40,4 +40,4 @@ RUN chown -R app:app $APP_HOME
 USER app
 
 # run gunicorn
-CMD gunicorn --bind 0.0.0.0:$PORT app.main:app -k uvicorn.workers.UvicornWorker
+CMD gunicorn --bind 0.0.0.0:5000 main:app -k uvicorn.workers.UvicornWorker
