@@ -1,6 +1,5 @@
-from typing import List
-
 from fastapi import HTTPException, status, Depends
+from sqlalchemy import and_
 from sqlalchemy.orm import Session
 
 from ecommerce import db
@@ -49,3 +48,11 @@ async def get_all_items(current_user, database) -> ShowCart:
     user_info = database.query(User).filter(User.email == current_user.email).first()
     cart = database.query(Cart).filter(Cart.user_id == user_info.id).first()
     return cart
+
+
+async def remove_cart_item(cart_item_id: int, current_user, database) -> None:
+    user_info = database.query(User).filter(User.email == current_user.email).first()
+    cart_id = database.query(Cart).filter(User.id == user_info.id).first()
+    database.query(CartItems).filter(and_(CartItems.id == cart_item_id, CartItems.cart_id == cart_id.id)).delete()
+    database.commit()
+    return
