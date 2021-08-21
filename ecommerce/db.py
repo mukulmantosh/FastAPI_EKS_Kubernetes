@@ -1,8 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import os
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:mukul123@localhost/mukuldb"
+DATABASE_USERNAME = os.getenv('DATABASE_USERNAME', 'postgres')
+DATABASE_PASSWORD = os.getenv('DATABASE_PASSWORD', 'mukul123')
+DATABASE_HOST = os.getenv('DATABASE_HOST', 'localhost')
+DATABASE_NAME = os.getenv('DATABASE_NAME', 'mukuldb')
+
+SQLALCHEMY_DATABASE_URL = f"postgresql://{DATABASE_USERNAME}:{DATABASE_PASSWORD}@{DATABASE_HOST}/{DATABASE_NAME}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
