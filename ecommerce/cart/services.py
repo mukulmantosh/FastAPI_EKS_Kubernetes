@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import HTTPException, status, Depends
 from sqlalchemy.orm import Session
 
@@ -5,6 +7,7 @@ from ecommerce import db
 from ecommerce.products.models import Product
 from ecommerce.user.models import User
 from .models import Cart, CartItems
+from .schema import ShowCart
 
 
 async def add_to_cart(product_id: int, current_user, database: Session = Depends(db.get_db)):
@@ -40,3 +43,9 @@ async def add_items(cart_id: int, product_id: int, database: Session = Depends(d
     product_object.update({"quantity": current_quantity})
     database.commit()
     return {'detail': 'Object Updated'}
+
+
+async def get_all_items(current_user, database) -> ShowCart:
+    user_info = database.query(User).filter(User.email == current_user.email).first()
+    cart = database.query(Cart).filter(Cart.user_id == user_info.id).first()
+    return cart

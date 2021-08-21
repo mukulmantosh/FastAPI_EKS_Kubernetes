@@ -25,4 +25,5 @@ class CartItems(Base):
     cart_id = Column(Integer, ForeignKey("cart.id", ondelete="CASCADE"), )
     product_id = Column(Integer, ForeignKey(Product.id, ondelete="CASCADE"), )
     cart = relationship("Cart", back_populates="cart_items")
+    products = relationship("Product", back_populates="cart_items")
     created_date = Column(DateTime, default=datetime.now)
