@@ -2,10 +2,10 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: postgres-pvc
-  namespace: django-project
+  namespace: fastapi-project
   labels:
     type: local
-    app: sample
+    app: ecommerce
 spec:
   storageClassName: manual
   accessModes:

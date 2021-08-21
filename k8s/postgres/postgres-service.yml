@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: postgres-service
-  namespace: django-project
+  namespace: fastapi-project
 spec:
   selector:
     app: postgres-container

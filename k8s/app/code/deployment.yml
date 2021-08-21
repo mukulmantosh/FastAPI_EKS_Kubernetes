@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-app-deployment
-  namespace: django-project
+  name: ecommerce-deployment
+  namespace: fastapi-project
   labels:
-    app: sample
+    app: ecommerce
 spec:
-  replicas: 4
+  replicas: 8
   selector:
     matchLabels:
-      app: sample
+      app: ecommerce
   template:
     metadata:
       labels:
-        app: sample
+        app: ecommerce
     spec:
       containers:
-        - image: mukulmantosh/django-k8s:latest
+        - image: mukulmantosh/ecommerce-fastapi:latest
           imagePullPolicy: IfNotPresent
           name: sample-container
           envFrom:
           - secretRef:
-              name: sample-secret
+              name: ecommerce-secret
           ports:
             - containerPort: 5000
-              name: django-gunicorn
+              name: fastapi
           readinessProbe:
             httpGet:
               port: 5000
@@ -34,10 +34,3 @@ spec:
             httpGet:
               port: 5000
               path: /
-          volumeMounts:
-            - name: django-static-assets-volume-mount
-              mountPath: /app/static
-      volumes:
-        - name: django-static-assets-volume-mount
-          persistentVolumeClaim:
-            claimName: django-static-pvc

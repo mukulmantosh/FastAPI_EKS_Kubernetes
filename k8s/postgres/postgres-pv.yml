@@ -2,10 +2,10 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: postgres-pv
-  namespace: django-project
+  namespace: fastapi-project
   labels:
     type: local
-    app: sample
+    app: ecommerce
 spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: manual

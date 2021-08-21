@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
-  namespace: django-project
+  namespace: fastapi-project
   labels:
-    app: nginx
+    app: ecommerce
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: nginx
+      app: ecommerce
   template:
     metadata:
       labels:
-        app: nginx
+        app: ecommerce
     spec:
       containers:
         - image: nginx:1.21
@@ -24,12 +24,7 @@ spec:
             - name: nginx-config
               mountPath: /etc/nginx/conf.d/default.conf
               subPath: default.conf
-            - name: django-static-assets
-              mountPath: /app/static
       volumes:
         - name: nginx-config
           configMap:
             name: nginx-config
-        - name: django-static-assets
-          persistentVolumeClaim:
-            claimName: django-static-pvc

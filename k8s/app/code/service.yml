@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sample-service
-  namespace: django-project
+  name: ecommerce-service
+  namespace: fastapi-project
   labels:
-    app: sample-service
+    app: ecommerce
 spec:
   selector:
-    app: sample
+    app: ecommerce
   ports:
     - port: 5000
       targetPort: 5000

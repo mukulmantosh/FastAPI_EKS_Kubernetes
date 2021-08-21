@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres-deployment
-  namespace: django-project
+  namespace: fastapi-project
 spec:
   replicas: 1
   selector:
