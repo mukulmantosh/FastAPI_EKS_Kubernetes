@@ -9,11 +9,11 @@ spec:
   replicas: 8
   selector:
     matchLabels:
-      app: ecommerce
+      app: ecommerce-app
   template:
     metadata:
       labels:
-        app: ecommerce
+        app: ecommerce-app
     spec:
       containers:
         - image: mukulmantosh/ecommerce-fastapi:latest
@@ -28,9 +28,11 @@ spec:
           readinessProbe:
             httpGet:
               port: 5000
-              path: /
+              path: /docs
             initialDelaySeconds: 15
           livenessProbe:
             httpGet:
               port: 5000
-              path: /
+              path: /docs
+            initialDelaySeconds: 15
+            periodSeconds: 15

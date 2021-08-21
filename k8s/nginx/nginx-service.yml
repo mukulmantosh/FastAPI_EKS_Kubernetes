@@ -8,7 +8,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: ecommerce
+    app: ecommerce-nginx
   ports:
     - port: 80
       targetPort: 80

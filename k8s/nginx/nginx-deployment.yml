@@ -6,20 +6,31 @@ metadata:
   labels:
     app: ecommerce
 spec:
-  replicas: 4
+  replicas: 8
   selector:
     matchLabels:
-      app: ecommerce
+      app: ecommerce-nginx
   template:
     metadata:
       labels:
-        app: ecommerce
+        app: ecommerce-nginx
     spec:
       containers:
         - image: nginx:1.21
           name: nginx-container
           ports:
             - containerPort: 80
+          readinessProbe:
+            httpGet:
+              port: 80
+              path: /docs
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              port: 80
+              path: /docs
+            initialDelaySeconds: 15
+            periodSeconds: 15
           volumeMounts:
             - name: nginx-config
               mountPath: /etc/nginx/conf.d/default.conf
