@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: django-project
+  labels:
+    app: nginx
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: nginx:1.21
+          name: nginx-container
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+            - name: django-static-assets
+              mountPath: /app/static
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+        - name: django-static-assets
+          persistentVolumeClaim:
+            claimName: django-static-pvc

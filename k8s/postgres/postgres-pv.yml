@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgres-pv
+  namespace: django-project
+  labels:
+    type: local
+    app: sample
+spec:
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /data/postgres-pv

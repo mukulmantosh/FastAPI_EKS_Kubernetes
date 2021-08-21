@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-app-deployment
+  namespace: django-project
+  labels:
+    app: sample
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: sample
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+        - image: mukulmantosh/django-k8s:latest
+          imagePullPolicy: IfNotPresent
+          name: sample-container
+          envFrom:
+          - secretRef:
+              name: sample-secret
+          ports:
+            - containerPort: 5000
+              name: django-gunicorn
+          readinessProbe:
+            httpGet:
+              port: 5000
+              path: /
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              port: 5000
+              path: /
+          volumeMounts:
+            - name: django-static-assets-volume-mount
+              mountPath: /app/static
+      volumes:
+        - name: django-static-assets-volume-mount
+          persistentVolumeClaim:
+            claimName: django-static-pvc
