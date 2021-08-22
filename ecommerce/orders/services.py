@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import HTTPException, status
 
 from ecommerce.cart.models import Cart, CartItems
@@ -38,3 +40,9 @@ async def initiate_order(current_user, database) -> Order:
     database.commit()
 
     return new_order
+
+
+async def get_order_listing(current_user, database) -> List[Order]:
+    user_info = database.query(User).filter(User.email == current_user.email).first()
+    orders = database.query(Order).filter(Order.customer_id == user_info.id).all()
+    return orders

@@ -1,5 +1,5 @@
 import datetime
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -16,7 +16,7 @@ class ShowOrderDetails(BaseModel):
 
 
 class ShowOrder(BaseModel):
-    id: int
+    id: Optional[int]
     order_date: datetime.datetime
     order_amount: float
     order_status: str
