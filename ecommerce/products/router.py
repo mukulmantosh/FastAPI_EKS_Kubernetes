@@ -42,4 +42,4 @@ async def create_product(request: schema.Product, database: Session = Depends(db
 
 @router.get('/', response_model=List[schema.ProductListing])
 async def get_all_products(database: Session = Depends(db.get_db)):
-    return await get_all_products(database)
+    return await services.get_all_products(database)

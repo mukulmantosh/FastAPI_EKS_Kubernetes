@@ -1,10 +1,10 @@
 from __future__ import with_statement
 
 import os
+from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
-from logging.config import fileConfig
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -20,12 +20,14 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
-from ecommerce.db import Base # noqa
-from ecommerce.user.models import User # noqa
-from ecommerce.products.models import Category, Product # noqa
-from ecommerce.orders.models import Order, OrderDetails # noqa
-from ecommerce.cart.models import Cart, CartItems # noqa
+from ecommerce.db import Base  # noqa
+from ecommerce.user.models import User  # noqa
+from ecommerce.products.models import Category, Product  # noqa
+from ecommerce.orders.models import Order, OrderDetails  # noqa
+from ecommerce.cart.models import Cart, CartItems  # noqa
+
 target_metadata = Base.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -39,7 +41,6 @@ def get_url():
     db_host = os.getenv("DATABASE_HOST", "192.168.0.101")
     db_name = os.getenv("DATABASE_NAME", "mukuldb")
     return f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
-
 
 
 def run_migrations_offline():

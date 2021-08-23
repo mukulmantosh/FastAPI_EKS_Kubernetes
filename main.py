@@ -18,10 +18,6 @@ celery = Celery(
     broker="redis://127.0.0.1:6379/0",
     backend="redis://127.0.0.1:6379/0"
 )
-
-
-@celery.task
-def send_email(email):
-    from ecommerce.orders.mail import order_notification
-    data = order_notification(email)
-    return "SUCCESS"
+celery.conf.imports = [
+    'ecommerce.orders.tasks',
+]

@@ -5,7 +5,7 @@ from fastapi import HTTPException, status
 from ecommerce.cart.models import Cart, CartItems
 from ecommerce.orders.models import Order, OrderDetails
 from ecommerce.user.models import User
-
+from . import tasks
 
 async def initiate_order(current_user, database) -> Order:
     user_info = database.query(User).filter(User.email == current_user.email).first()
@@ -34,6 +34,9 @@ async def initiate_order(current_user, database) -> Order:
 
     database.bulk_save_objects(bulk_order_details_objects)
     database.commit()
+
+    # Send Email
+    tasks.send_email.delay(current_user.email)
 
     # clear items in cart
     database.query(CartItems).filter(CartItems.cart_id == cart.id).delete()
