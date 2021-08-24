@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - image: mukulmantosh/ecommerce-fastapi:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           name: sample-container
           envFrom:
           - secretRef:
