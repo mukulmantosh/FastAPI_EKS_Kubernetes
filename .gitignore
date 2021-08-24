@@ -1,3 +1,4 @@
 .idea/*
 test.db
+.pytest_cache
 
