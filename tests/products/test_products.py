@@ -1,4 +1,5 @@
 import pytest
+from faker import Faker
 from httpx import AsyncClient
 
 from ecommerce.products.models import Category, Product
@@ -8,8 +9,10 @@ from test_conf import app, override_get_db
 @pytest.mark.asyncio
 async def test_new_product():
     async with AsyncClient(app=app, base_url="http://test") as ac:
+        fake = Faker()
+
         database = next(override_get_db())
-        new_category = Category(name="Healthy")
+        new_category = Category(name=fake.name())
         database.add(new_category)
         database.commit()
         database.refresh(new_category)
@@ -33,8 +36,9 @@ async def test_new_product():
 @pytest.mark.asyncio
 async def test_list_products():
     async with AsyncClient(app=app, base_url="http://test") as ac:
+        fake = Faker()
         database = next(override_get_db())
-        new_category = Category(name="Healthy")
+        new_category = Category(name=fake.name())
         database.add(new_category)
         database.commit()
         database.refresh(new_category)
