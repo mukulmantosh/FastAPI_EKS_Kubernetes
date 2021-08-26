@@ -1,3 +1,5 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -6,6 +8,12 @@ from main import app
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
+
+def db_cleanup(filePath):
+    if os.path.exists(filePath):
+        os.remove(filePath)
+
+
 engine = create_engine(
 
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
@@ -13,6 +21,8 @@ engine = create_engine(
 )
 
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+db_cleanup('test.db')
 
 Base.metadata.create_all(bind=engine)
 
