@@ -3,7 +3,6 @@ import pytest
 from ecommerce.user.models import User
 
 
-
 @pytest.fixture(autouse=True)
 def create_dummy_user(tmpdir):
     """Fixture to execute asserts before and after a test is run"""
