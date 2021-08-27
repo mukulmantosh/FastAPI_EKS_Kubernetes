@@ -8,7 +8,7 @@ from ecommerce.orders import router as order_router
 from ecommerce.products import router as product_router
 from ecommerce.user import router as user_router
 
-app = FastAPI(title='SAMPLE DOCS')
+app = FastAPI(title='Sample Docs', version='1.0')
 app.include_router(auth_router.router)
 app.include_router(user_router.router)
 app.include_router(product_router.router)
