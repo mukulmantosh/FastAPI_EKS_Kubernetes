@@ -1,0 +1,3 @@
+## Part 1
+
+# 1. eksctl create cluster -f cluster.yml --auto-kubeconfig

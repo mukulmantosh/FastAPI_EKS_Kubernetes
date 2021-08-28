@@ -1,0 +1,25 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: fastapi-demo
+  region: ap-south-1
+managedNodeGroups:
+  - name: fastapi-private-ng
+    instanceType: t3a.small
+    desiredCapacity: 3
+    minSize: 3
+    maxSize: 6
+    volumeType: gp3
+    volumeSize: 20
+    privateNetworking: true
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        imageBuilder: true
+        albIngress: true
+        externalDNS: true
+        certManager: true
+    ssh:
+      allow: true
+      publicKey: "fastapi-demo"

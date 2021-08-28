@@ -17,6 +17,7 @@ click-didyoumean==0.0.3
 click-plugins==1.1.1
 click-repl==0.2.0
 colorama==0.4.4
+coverage==5.5
 cryptography==3.4.7
 dnspython==2.1.0
 ecdsa==0.17.0
@@ -46,6 +47,7 @@ pydantic==1.8.2
 pyparsing==2.4.7
 pytest==6.2.4
 pytest-asyncio==0.15.1
+pytest-mock==3.6.1
 python-dateutil==2.8.2
 python-editor==1.0.4
 python-jose==3.3.0

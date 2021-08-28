@@ -7,7 +7,9 @@ from tests.shared.info import category_info, product_info
 
 
 @pytest.mark.asyncio
-async def test_order_processing():
+async def test_order_processing(mocker):
+    mocker.patch('ecommerce.orders.tasks.send_email', return_value=True)
+
     async with AsyncClient(app=app, base_url="http://test") as ac:
         user_access_token = create_access_token({"sub": "john@gmail.com"})
         category_obj = await category_info()
