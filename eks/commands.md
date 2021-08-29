@@ -85,6 +85,12 @@ aws iam create-policy \
     --policy-document file://iam-policy.json
 ```
 
+or you can copy it from :
+
+```
+https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/master/docs/examples/iam-policy.json
+```
+
 
 ### 8. Create an IAM role & attach it to the service account
 

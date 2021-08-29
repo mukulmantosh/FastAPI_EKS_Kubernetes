@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-deployment
+  labels:
+    app: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: celery-app
+  template:
+    metadata:
+      labels:
+        app: celery-app
+    spec:
+      containers:
+        - image: 254501641575.dkr.ecr.ap-south-1.amazonaws.com/fastapi-ecommerce:latest
+          command: ['celery', '-A', 'main.celery', 'worker', '-l', 'info']
+          envFrom:
+            - secretRef:
+                name: celery-secret
+          name: celery-container
+
