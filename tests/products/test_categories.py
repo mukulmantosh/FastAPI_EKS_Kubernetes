@@ -2,7 +2,7 @@ import pytest
 from httpx import AsyncClient
 
 from ecommerce.products.models import Category
-from test_conf import app, override_get_db
+from conf_test_db import app, override_get_db
 
 
 @pytest.mark.asyncio

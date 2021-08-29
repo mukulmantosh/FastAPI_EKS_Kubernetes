@@ -1,7 +1,7 @@
 from faker import Faker
 
 from ecommerce.products.models import Category, Product
-from test_conf import override_get_db
+from conf_test_db import override_get_db
 
 
 async def category_info() -> Category:

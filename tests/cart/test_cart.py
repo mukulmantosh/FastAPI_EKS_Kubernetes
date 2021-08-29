@@ -2,7 +2,7 @@ import pytest
 from httpx import AsyncClient
 
 from ecommerce.auth.jwt import create_access_token
-from test_conf import app
+from conf_test_db import app
 from tests.shared.info import category_info, product_info
 
 

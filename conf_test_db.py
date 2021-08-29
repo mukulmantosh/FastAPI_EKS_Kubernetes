@@ -1,12 +1,9 @@
-import os
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+import config_env as env_var
 from ecommerce.db import Base, get_db
 from main import app
-
-import config_env as env_var
 
 DATABASE_USERNAME = env_var.DATABASE_USERNAME
 DATABASE_PASSWORD = env_var.DATABASE_PASSWORD
