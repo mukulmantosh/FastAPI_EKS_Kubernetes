@@ -1,6 +1,6 @@
 # FastAPI with Kubernetes
 
-
+Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
 
 ### Prerequisites 
 
@@ -18,10 +18,11 @@ PyCharm installed in your machine.
 - [x] [eksctl](https://eksctl.io/) - The official CLI for Amazon EKS
 
 
-
-
-
 - [x] [Docker](https://www.docker.com/) - Docker helps developers bring their ideas to life by conquering the complexity of app development.
+
+
+- [x] [Kubernetes](https://kubernetes.io/) - also known as K8s, is an 
+ open-source system for automating deployment, scaling, and management of containerized applications.
 
 
 - [x] [NICE DCV](https://www.nice-dcv.com/) (Optional) - Deliver high-performance remote desktop and application streaming. If 
