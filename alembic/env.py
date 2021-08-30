@@ -1,6 +1,5 @@
 from __future__ import with_statement
 
-import os
 from logging.config import fileConfig
 
 from alembic import context
@@ -20,6 +19,7 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 # target_metadata = None
 
+from ecommerce import config as config_env
 from ecommerce.db import Base  # noqa
 from ecommerce.user.models import User  # noqa
 from ecommerce.products.models import Category, Product  # noqa
@@ -36,10 +36,10 @@ target_metadata = Base.metadata
 
 
 def get_url():
-    db_user = os.getenv("DATABASE_USERNAME", "postgres")
-    db_password = os.getenv("DATABASE_PASSWORD", "mukul123")
-    db_host = os.getenv("DATABASE_HOST", "192.168.0.101")
-    db_name = os.getenv("DATABASE_NAME", "mukuldb")
+    db_user = config_env.DATABASE_USERNAME
+    db_password = config_env.DATABASE_PASSWORD
+    db_host = config_env.DATABASE_HOST
+    db_name = config_env.DATABASE_NAME
     return f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
 
 

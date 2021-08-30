@@ -1,7 +1,7 @@
 from celery import Celery
 from fastapi import FastAPI
 
-import config_env as env_var
+from ecommerce import config
 from ecommerce.auth import router as auth_router
 from ecommerce.cart import router as cart_router
 from ecommerce.orders import router as order_router
@@ -17,8 +17,8 @@ app.include_router(order_router.router)
 
 celery = Celery(
     __name__,
-    broker=f"redis://{env_var.REDIS_HOST}:{env_var.REDIS_PORT}/{env_var.REDIS_DB}",
-    backend=f"redis://{env_var.REDIS_HOST}:{env_var.REDIS_PORT}/{env_var.REDIS_DB}"
+    broker=f"redis://{config.REDIS_HOST}:{config.REDIS_PORT}/{config.REDIS_DB}",
+    backend=f"redis://{config.REDIS_HOST}:{config.REDIS_PORT}/{config.REDIS_DB}"
 )
 celery.conf.imports = [
     'ecommerce.orders.tasks',
