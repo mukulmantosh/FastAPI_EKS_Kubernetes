@@ -59,6 +59,17 @@ $ uvicorn main:app --reload
 
 ```
 
+## Update Environment Variables
+
+Make sure to update the environment variables, before starting up the project.
+
+**config_env.py**
+
+
+![config-file](./docs/images/env_file.png)
+
+
+
 ## Testing
 
 Before proceeding make sure you have created a test database in Postgres.
