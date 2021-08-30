@@ -1,5 +1,9 @@
 # FastAPI with Kubernetes
 
+![docker](./docs/images/docker.svg)
+![k8s](./docs/images/k8s.svg)
+![fastapi](./docs/images/fastapi-logo.png)
+
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
 
 ### Prerequisites 
@@ -28,7 +32,7 @@ PyCharm installed in your machine.
 - [x] [NICE DCV](https://www.nice-dcv.com/) (Optional) - Deliver high-performance remote desktop and application streaming. If 
 you are interested to run your workload directly in AWS.
 
-![k8s](./docs/images/docker.svg)
+
 
 ### Python Dependencies
 
