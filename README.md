@@ -4,6 +4,8 @@
 ![k8s](./docs/images/k8s.svg | height=200)
 ![fastapi](./docs/images/fastapi-logo.png | height=200)
 
+<img alt="docker" src="./docs/images/docker.svg" width="48">
+
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
 
 ### Prerequisites 
