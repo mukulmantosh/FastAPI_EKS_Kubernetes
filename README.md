@@ -31,7 +31,6 @@ you are interested to run your workload directly in AWS.
 
 ### Python Dependencies
 
-Install Packages
 
 ```bash
 
@@ -39,4 +38,4 @@ $ pip install -r requirements.txt
 
 ```
 
-- ![requirements-install](./docs/images/requirements.gif)
+![requirements-install](./docs/images/requirements.gif)
