@@ -61,6 +61,10 @@ $ uvicorn main:app --reload
 
 ## Testing
 
+Before proceeding make sure you have created a test database in Postgres.
+
+![python-testing](./docs/images/testing.gif)
+
 
 
 ## References
