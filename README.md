@@ -70,6 +70,17 @@ Make sure to update the environment variables, before starting up the project.
 
 
 
+## Celery
+
+Make sure before starting up Celery, redis is up and running.
+
+Command to start celery worker :
+
+```bash
+$ celery -A main.celery worker -l info
+```
+![celery-task](./docs/images/celery-task.png)
+
 ## Testing
 
 Before proceeding make sure you have created a test database in Postgres.
