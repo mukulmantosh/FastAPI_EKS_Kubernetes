@@ -5,7 +5,7 @@
 
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
 
-### Prerequisites 
+## Prerequisites 
 
 Before starting up this project, make sure you have an AWS account and 
 PyCharm installed in your machine.
@@ -28,14 +28,20 @@ PyCharm installed in your machine.
  open-source system for automating deployment, scaling, and management of containerized applications.
 
 
+- [x] [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database
+
+
+- [x] [Redis](https://redis.io/) - open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker
+
+
 - [x] [NICE DCV](https://www.nice-dcv.com/) (Optional) - Deliver high-performance remote desktop and application streaming. If 
 you are interested to run your workload directly in AWS.
 
 
 
-### Python Dependencies
+## Python Dependencies
 
-- Install Python Packages
+- Installing Python Packages
 
 ```bash
 
@@ -45,10 +51,21 @@ $ pip install -r requirements.txt
 
 ![requirements-install](./docs/images/requirements.gif)
 
-- Running Uvicorn
+- Running Uvicorn Server
 
 ```bash
 
 $ uvicorn main:app --reload
 
 ```
+
+## Testing
+
+
+
+## References
+
+If you are interested to know more about AWS with Python, then you can follow the below links.
+
+- [Developing Serverless APIs using AWS Toolkit](https://www.jetbrains.com/pycharm/guide/tutorials/intro-aws/)
+- [Developing Django Application using AWS](https://www.jetbrains.com/pycharm/guide/tutorials/django-aws/) 
