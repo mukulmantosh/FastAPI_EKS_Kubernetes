@@ -59,7 +59,7 @@ $ uvicorn main:app --reload
 
 ```
 
-## Update Environment Variables
+## Environment
 
 Make sure to update the environment variables in **ecommerce/config.py**, before starting up the project.
 
