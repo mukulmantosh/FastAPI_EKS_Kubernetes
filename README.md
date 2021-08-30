@@ -28,9 +28,11 @@ PyCharm installed in your machine.
 - [x] [NICE DCV](https://www.nice-dcv.com/) (Optional) - Deliver high-performance remote desktop and application streaming. If 
 you are interested to run your workload directly in AWS.
 
+![k8s](./docs/images/docker.svg)
 
 ### Python Dependencies
 
+- Install Python Packages
 
 ```bash
 
@@ -39,3 +41,11 @@ $ pip install -r requirements.txt
 ```
 
 ![requirements-install](./docs/images/requirements.gif)
+
+- Running Uvicorn
+
+```bash
+
+$ uvicorn main:app --reload
+
+```
