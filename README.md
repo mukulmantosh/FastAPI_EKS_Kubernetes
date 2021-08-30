@@ -1,8 +1,8 @@
 # FastAPI with Kubernetes
 
-![docker](./docs/images/docker.svg)
-![k8s](./docs/images/k8s.svg)
-![fastapi](./docs/images/fastapi-logo.png)
+![docker](./docs/images/docker.svg | height=200)
+![k8s](./docs/images/k8s.svg | height=200)
+![fastapi](./docs/images/fastapi-logo.png | height=200)
 
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
 
