@@ -4,6 +4,7 @@ metadata:
   name: fastapi-migrations
   namespace: fastapi-project
 spec:
+  ttlSecondsAfterFinished: 100
   template:
     spec:
       containers:
@@ -12,6 +13,10 @@ spec:
           command: ['alembic', 'upgrade', 'head']
           envFrom:
             - secretRef:
-                name: ecommerce-secret
-      restartPolicy: Never
+                name: migration-secret
+      initContainers:
+        - name: init-postgres-service
+          image: busybox:1.28
+          command: [ 'sh', '-c', "until nslookup postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for postgres-service; sleep 2; done" ]
+      restartPolicy: OnFailure
   backoffLimit: 3

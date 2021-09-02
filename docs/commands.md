@@ -1,5 +1,7 @@
 # Setting AWS Elastic Kubernetes Service (EKS) with FAST API
 
+# https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
 ## Part 1
 
 ### 1. Publish Image in Amazon ECR

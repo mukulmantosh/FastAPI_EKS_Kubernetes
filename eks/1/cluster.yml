@@ -4,7 +4,7 @@ kind: ClusterConfig
 metadata:
   name: fastapi-demo
   region: ap-south-1
-  version: "1.20"
+  version: "1.21"
 managedNodeGroups:
   - name: fastapi-private-ng
     instanceType: t3a.small
