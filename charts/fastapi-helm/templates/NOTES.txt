@@ -1,3 +1,16 @@
 Welcome to FastAPI with Kubernetes Helm Chart
 
-Point your browser towards -> http://localhost:30009
+1. Get the application URL by running these commands:
+
+* NOTE: It may take a few minutes for all the services to be available.
+
+You can watch the status of by running 'kubectl get all --namespace {{ .Release.Namespace }}'
+
+
+export NODE_PORT=$(kubectl get svc nginx-service-{{ include "fastapi-helm.fullname" . }} -o jsonpath="{.spec.ports[0].nodePort}" --namespace {{ .Release.Namespace }})
+
+
+echo "Visit http://127.0.0.1:$NODE_PORT to use your application"
+
+echo "Happy Helming with FastAPI :)"
+
