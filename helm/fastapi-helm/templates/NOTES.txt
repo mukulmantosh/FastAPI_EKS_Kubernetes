@@ -1,0 +1,3 @@
+Welcome to FastAPI with Kubernetes Helm Chart
+
+Point your browser towards -> http://localhost:30009
