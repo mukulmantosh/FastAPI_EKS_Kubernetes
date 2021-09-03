@@ -4,8 +4,6 @@
 
 replicaCount: 1
 
-namespace: "fastapi-project"
-
 nginxImage:
   repository: nginx
   pullPolicy: IfNotPresent

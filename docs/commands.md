@@ -2,6 +2,8 @@
 
 # https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 # https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#not-all-objects-are-in-a-namespace
+
+# https://github.com/celery/celery/issues/4079
 ## Part 1
 
 ### 1. Publish Image in Amazon ECR

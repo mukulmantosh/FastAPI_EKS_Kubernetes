@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: celery-deployment-{{ include "fastapi-helm.fullname" . }}
-  namespace: {{.Values.namespace}}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: ecommerce
     version: {{.Chart.AppVersion}}

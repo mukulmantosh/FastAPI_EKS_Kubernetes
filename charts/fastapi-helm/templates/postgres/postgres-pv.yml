@@ -2,7 +2,7 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: postgres-pv
-  namespace: {{.Values.namespace}}
+  namespace: {{ .Release.Namespace }}
   labels:
     type: local
     app: ecommerce

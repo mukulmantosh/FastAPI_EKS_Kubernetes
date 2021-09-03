@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-service-{{ include "fastapi-helm.fullname" . }}
-  namespace: {{ .Values.namespace }}
+  name: redis-service
+  namespace: {{ .Release.Namespace }}
   labels:
     app: ecommerce
     version: {{ .Chart.AppVersion }}
