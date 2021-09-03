@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-{{ include "fastapi-helm.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ecommerce
+    version: {{ .Chart.AppVersion}}
+spec:
+  type: NodePort
+  selector:
+    app: ecommerce-nginx
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30009
+

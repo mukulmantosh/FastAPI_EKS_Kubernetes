@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fastapi-migrations-{{ include "fastapi-helm.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ecommerce-migration
+    version: {{.Chart.AppVersion}}
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+        - name: migration-container
+          image: mukulmantosh/ecommerce-fastapi:latest
+          command: ['alembic', 'upgrade', 'head']
+          envFrom:
+            - secretRef:
+                name: migration-secret-{{ include "fastapi-helm.fullname" . }}
+      initContainers:
+        - name: init-postgres-service
+          image: busybox:1.28
+          command: [ 'sh', '-c', "until nslookup postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for postgres-service; sleep 2; done" ]
+      restartPolicy: OnFailure
+  backoffLimit: 3

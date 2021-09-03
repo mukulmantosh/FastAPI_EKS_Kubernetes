@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-deployment-{{ include "fastapi-helm.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: ecommerce
+    version: {{ .Chart.AppVersion}}
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: ecommerce-app
+  template:
+    metadata:
+      labels:
+        app: ecommerce-app
+    spec:
+      initContainers:
+        - name: init-postgres-service
+          image: busybox:1.28
+          command: [ 'sh', '-c', "until nslookup postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for postgres-service; sleep 2; done" ]
+      containers:
+        - image: mukulmantosh/ecommerce-fastapi:latest
+          imagePullPolicy: Always
+          name: sample-container
+          envFrom:
+          - secretRef:
+              name: ecommerce-secret-{{ include "fastapi-helm.fullname" . }}
+          ports:
+            - containerPort: 5000
+              name: fastapi
+          readinessProbe:
+            httpGet:
+              port: 5000
+              path: /docs
+            initialDelaySeconds: 15
+          livenessProbe:
+            httpGet:
+              port: 5000
+              path: /docs
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "0.5"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
