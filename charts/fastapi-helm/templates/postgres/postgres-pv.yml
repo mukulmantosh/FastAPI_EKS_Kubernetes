@@ -9,10 +9,19 @@ metadata:
     version: {{.Chart.AppVersion}}
 spec:
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: manual
+  storageClassName: local-storage
   capacity:
     storage: 2Gi
+  volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
-  hostPath:
-    path: /data/postgres-pv
+  local:
+    path: /run/desktop/mnt/host/e/postgres-data   # <-- if running with docker desktop in windows
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - docker-desktop   # <-- name of the node

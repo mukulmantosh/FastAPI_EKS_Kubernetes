@@ -8,7 +8,7 @@ metadata:
     app: ecommerce
     version: {{.Chart.AppVersion}}
 spec:
-  storageClassName: manual
+  storageClassName: local-storage
   accessModes:
     - ReadWriteMany
   resources:
