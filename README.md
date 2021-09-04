@@ -28,6 +28,10 @@ PyCharm installed in your machine.
  open-source system for automating deployment, scaling, and management of containerized applications.
 
 
+- [x] [Helm](https://helm.sh/) - The package manager for Kubernetes. Helm helps you manage 
+Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+
+
 - [x] [PostgreSQL](https://www.postgresql.org/) - The World's Most Advanced Open Source Relational Database
 
 
