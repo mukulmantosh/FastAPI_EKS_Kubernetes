@@ -19,4 +19,4 @@ spec:
           image: busybox:1.28
           command: [ 'sh', '-c', "until nslookup postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for postgres-service; sleep 2; done" ]
       restartPolicy: OnFailure
-  backoffLimit: 3
+  backoffLimit: 15

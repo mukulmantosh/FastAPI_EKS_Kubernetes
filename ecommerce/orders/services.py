@@ -7,6 +7,7 @@ from ecommerce.orders.models import Order, OrderDetails
 from ecommerce.user.models import User
 from . import tasks
 
+
 async def initiate_order(current_user, database) -> Order:
     user_info = database.query(User).filter(User.email == current_user.email).first()
     cart = database.query(Cart).filter(Cart.user_id == user_info.id).first()
