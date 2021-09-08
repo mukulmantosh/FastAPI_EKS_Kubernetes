@@ -1,11 +1,12 @@
 from typing import List
 
-from fastapi import APIRouter, Depends, status, Response
+from fastapi import APIRouter, Depends, status, Response, HTTPException
 from sqlalchemy.orm import Session
 
 from ecommerce import db
 from . import schema
 from . import services
+from . import validator
 
 router = APIRouter(
     tags=['Products'],
@@ -36,6 +37,13 @@ async def delete_category_by_id(category_id: int, database: Session = Depends(db
 
 @router.post('/', status_code=status.HTTP_201_CREATED)
 async def create_product(request: schema.Product, database: Session = Depends(db.get_db)):
+    category = await validator.verify_category_exist(request.category_id, database)
+    if category:
+        raise HTTPException(
+            status_code=400,
+            detail="You have provided invalid category id.",
+        )
+
     product = await services.create_new_product(request, database)
     return product
 
