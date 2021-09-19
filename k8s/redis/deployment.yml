@@ -16,7 +16,7 @@ spec:
         app: redis-app
     spec:
       containers:
-        - image: redis:latest
+        - image: redis:6.2.5-alpine
           imagePullPolicy: IfNotPresent
           name: redis-container
           ports:

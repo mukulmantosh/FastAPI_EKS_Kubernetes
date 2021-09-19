@@ -19,7 +19,9 @@ spec:
                 name: migration-secret-{{ include "fastapi-helm.fullname" . }}
       initContainers:
         - name: init-postgres-service
-          image: busybox:1.28
-          command: [ 'sh', '-c', "until nslookup postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for postgres-service; sleep 2; done" ]
+          image: postgres:10.17
+          command: ['sh', '-c',
+          'until pg_isready -h postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local -p 5432;
+          do echo waiting for database; sleep 2; done;']
       restartPolicy: OnFailure
   backoffLimit: 15
