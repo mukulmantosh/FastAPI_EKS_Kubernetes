@@ -16,8 +16,8 @@ Ecommerce API
 
 You will be able to:
 
-* **Create users** (_not implemented_).
-* **Read users** (_not implemented_).
+* **Create users** 
+* **Read users** 
 """
 
 app = FastAPI(

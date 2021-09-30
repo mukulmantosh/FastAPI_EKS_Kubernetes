@@ -14,6 +14,9 @@ router = APIRouter(
     prefix='/user'
 )
 
+# Interesting Question for Global Dependency
+# https://github.com/tiangolo/fastapi/issues/2481
+
 
 @router.post('/', status_code=status.HTTP_201_CREATED)
 async def create_user_registration(request: schema.User, database: Session = Depends(db.get_db)):
