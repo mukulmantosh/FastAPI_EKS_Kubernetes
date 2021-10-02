@@ -41,6 +41,18 @@ Kubernetes applications — Helm Charts help you define, install, and upgrade ev
 - [x] [NICE DCV](https://www.nice-dcv.com/) (Optional) - Deliver high-performance remote desktop and application streaming. If 
 you are interested to run your workload directly in AWS.
 
+## System Dependencies
+
+- Make sure your system is up-to-date.
+- Run the below command to install python system 
+dependencies along-with postgres driver.
+
+```bash
+
+$ sudo apt-get install libpq-dev python-dev libssl-dev
+
+```
+
 
 
 ## Python Dependencies
@@ -81,6 +93,17 @@ Command to start celery worker :
 ```bash
 $ celery -A main.celery worker -l info
 ```
+or with execution pool
+```bash
+$ celery -A main.celery worker -l info --pool=prefork
+```
+
+Reference Materials:
+* [Celery Execution Pools: What is it all about?](https://www.distributedpython.com/2018/10/26/celery-execution-pool/)
+* [A complete guide to production-ready Celery configuration](https://medium.com/koko-networks/a-complete-guide-to-production-ready-celery-configuration-5777780b3166)
+* [Eliminating Task Processing Outages by Replacing RabbitMQ with Apache Kafka Without Downtime](https://doordash.engineering/2020/09/03/eliminating-task-processing-outages-with-kafka/)
+
+
 ![celery-task](./docs/images/celery-task.png)
 
 ## Testing

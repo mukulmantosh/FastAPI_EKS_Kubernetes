@@ -12,7 +12,7 @@ def clean_html(raw_html):
 
 # Replace sender@example.com with your "From" address.
 # This address must be verified with Amazon SES.
-SENDER = "Mukul Mantosh <mukulmantosh91@gmail.com>"
+SENDER = "FastAPI <changethisemailaddress@gmail.com>"
 
 # If necessary, replace us-west-2 with the AWS Region you're using for Amazon SES.
 AWS_REGION = "ap-south-1"
