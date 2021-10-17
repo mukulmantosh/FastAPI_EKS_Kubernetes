@@ -1,6 +1,8 @@
+# If a nodegroup includes the attachPolicyARNs it must also include the default node policies,
+# like AmazonEKSWorkerNodePolicy, AmazonEKS_CNI_Policy and AmazonEC2ContainerRegistryReadOnly.
+
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
-
 metadata:
   name: fastapi-demo
   region: ap-south-1
@@ -15,8 +17,11 @@ managedNodeGroups:
     volumeSize: 20
     privateNetworking: true
     iam:
-      attachPolicyARNs:
+      attachPolicyARNs:  # Reference : https://eksctl.io/usage/iam-policies/
         - arn:aws:iam::254501641575:policy/SES_EKS_Policy
+        - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
       withAddonPolicies:
         autoScaler: true
         imageBuilder: true
