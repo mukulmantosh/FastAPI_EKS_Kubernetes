@@ -30,4 +30,4 @@ managedNodeGroups:
         certManager: true
     ssh:
       allow: true
-      publicKeyName: "fastapi-demo"
+      publicKeyName: "fastapi-demo" # <-- ssh key name
