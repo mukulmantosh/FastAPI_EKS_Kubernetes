@@ -21,7 +21,6 @@ managedNodeGroups:
         - arn:aws:iam::254501641575:policy/SES_EKS_Policy
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-        - arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess
       withAddonPolicies:
         autoScaler: true
         imageBuilder: true
