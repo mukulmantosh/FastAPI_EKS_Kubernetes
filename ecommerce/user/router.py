@@ -14,6 +14,7 @@ router = APIRouter(
     prefix='/user'
 )
 
+
 # Interesting Question for Global Dependency
 # https://github.com/tiangolo/fastapi/issues/2481
 
@@ -34,7 +35,7 @@ async def create_user_registration(request: schema.User, database: Session = Dep
 
 
 @router.get('/', response_model=List[schema.DisplayUser])
-async def get_all_user(database: Session = Depends(db.get_db), current_user: schema.User = Depends(get_current_user)):
+async def get_all_users(database: Session = Depends(db.get_db), current_user: schema.User = Depends(get_current_user)):
     return await services.all_users(database)
 
 
