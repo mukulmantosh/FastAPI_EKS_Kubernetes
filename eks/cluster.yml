@@ -18,9 +18,10 @@ managedNodeGroups:
     privateNetworking: true
     iam:
       attachPolicyARNs:  # Reference : https://eksctl.io/usage/iam-policies/
-        - arn:aws:iam::<REPLACE_NUMBER>:policy/SES_EKS_Policy
+        - arn:aws:iam::254501641575:policy/SES_EKS_Policy
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+        - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
       withAddonPolicies:
         autoScaler: true
         imageBuilder: true
