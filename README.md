@@ -1,4 +1,4 @@
-# FastAPI with Kubernetes, AWS & PyCharm
+# FastAPI Tutorial Series
 
 ![stack](./misc/images/stack.png)
 
