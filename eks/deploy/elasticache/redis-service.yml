@@ -4,5 +4,5 @@ metadata:
   name: redis-service
 spec:
   type: ExternalName
-  externalName:  redis-eks.jv4muu.0001.aps1.cache.amazonaws.com
+  externalName:  <ELASTICACHE_ENDPOINT_URL>
 
