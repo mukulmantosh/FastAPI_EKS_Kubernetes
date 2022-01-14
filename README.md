@@ -1,6 +1,6 @@
 # FastAPI with Kubernetes
 
-![stack](./docs/images/stack.png)
+![stack](./misc/images/stack.png)
 
 
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
@@ -65,7 +65,7 @@ $ pip install -r requirements.txt
 
 ```
 
-![requirements-install](./docs/images/requirements.gif)
+![requirements-install](./misc/images/requirements.gif)
 
 - Running Uvicorn Server
 
@@ -80,7 +80,7 @@ $ uvicorn main:app --reload
 Make sure to update the environment variables in **ecommerce/config.py**, before starting up the project.
 
 
-![config-file](./docs/images/env_file.png)
+![config-file](./misc/images/env_file.png)
 
 
 
@@ -104,13 +104,13 @@ Reference Materials:
 * [Eliminating Task Processing Outages by Replacing RabbitMQ with Apache Kafka Without Downtime](https://doordash.engineering/2020/09/03/eliminating-task-processing-outages-with-kafka/)
 
 
-![celery-task](./docs/images/celery-task.png)
+![celery-task](./misc/images/celery-task.png)
 
 ## Testing
 
 Before proceeding make sure you have created a test database in Postgres.
 
-![python-testing](./docs/images/testing.gif)
+![python-testing](./misc/images/testing.gif)
 
 
 
