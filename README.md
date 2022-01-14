@@ -1,4 +1,4 @@
-# FastAPI with Kubernetes
+# FastAPI with Kubernetes, AWS & PyCharm
 
 ![stack](./misc/images/stack.png)
 
