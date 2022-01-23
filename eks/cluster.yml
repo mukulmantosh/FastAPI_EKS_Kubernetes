@@ -18,7 +18,7 @@ managedNodeGroups:
     privateNetworking: true
     iam:
       attachPolicyARNs:  # Reference : https://eksctl.io/usage/iam-policies/
-        - arn:aws:iam::254501641575:policy/SES_EKS_Policy
+        - arn:aws:iam::XXXXXXXXXXXXXX:policy/SES_EKS_Policy # <-- this is a custom policy, you need to replace this.
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
@@ -30,4 +30,4 @@ managedNodeGroups:
         certManager: true
     ssh:
       allow: true
-      publicKeyName: "fastapi-demo" # <-- ssh key name
+      publicKeyName: "fastapi-demo" # <-- ssh key name, make sure you define the Key Pair before setting up the cluster. Reference : https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html 
