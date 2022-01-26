@@ -122,4 +122,4 @@ Before proceeding make sure you have created a test database in Postgres.
 If you are interested to know more about AWS with Python, then you can follow the below links.
 
 - [Developing Serverless APIs using AWS Toolkit](https://www.jetbrains.com/pycharm/guide/tutorials/intro-aws/)
-- [Developing Django Application using AWS](https://www.jetbrains.com/pycharm/guide/tutorials/django-aws/) 
+- [Developing Django Application using AWS NICE DCV, high-performance remote desktop and application streaming](https://www.jetbrains.com/pycharm/guide/tutorials/django-aws/) 
