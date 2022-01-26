@@ -23,7 +23,7 @@ spec:
           'until pg_isready -h postgres-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local -p 5432;
           do echo waiting for database; sleep 2; done;']
       containers:
-        - image: mukulmantosh/ecommerce-fastapi:latest
+        - image: <DOCKER_IMAGE_URL>
           imagePullPolicy: Always
           name: sample-container
           envFrom:
