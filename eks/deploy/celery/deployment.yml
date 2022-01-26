@@ -15,7 +15,7 @@ spec:
         app: celery-app
     spec:
       containers:
-        - image: 254501641575.dkr.ecr.ap-south-1.amazonaws.com/fastapi-ecommerce:latest
+        - image: <ECR_REPOSITORY_URL>
           command: ['celery', '-A', 'main.celery', 'worker', '-l', 'info']
           envFrom:
             - secretRef:

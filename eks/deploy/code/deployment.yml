@@ -15,7 +15,7 @@ spec:
         app: ecommerce-app
     spec:
       containers:
-        - image: 254501641575.dkr.ecr.ap-south-1.amazonaws.com/fastapi-ecommerce:latest
+        - image: <ECR_REPOSITORY_URL>
           imagePullPolicy: Always
           name: sample-container
           envFrom:

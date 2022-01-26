@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: migration-container
-          image: 254501641575.dkr.ecr.ap-south-1.amazonaws.com/fastapi-ecommerce:latest
+          image: <ECR_REPOSITORY_URL>
           command: ['alembic', 'upgrade', 'head']
           envFrom:
             - secretRef:

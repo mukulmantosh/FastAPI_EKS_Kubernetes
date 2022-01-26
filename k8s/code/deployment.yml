@@ -23,7 +23,7 @@ spec:
           do echo waiting for database; sleep 2; done;']
 
       containers:
-        - image: mukulmantosh/ecommerce-fastapi:latest
+        - image: <DOCKER_IMAGE_URL>
           imagePullPolicy: Always
           name: sample-container
           envFrom:

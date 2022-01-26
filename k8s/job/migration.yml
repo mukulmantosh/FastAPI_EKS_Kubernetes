@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
         - name: migration-container
-          image: mukulmantosh/ecommerce-fastapi:latest
+          image: <DOCKER_IMAGE_URL>
           command: ['alembic', 'upgrade', 'head']
           envFrom:
             - secretRef:

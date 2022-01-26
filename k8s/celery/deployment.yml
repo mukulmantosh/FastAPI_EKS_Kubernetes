@@ -21,7 +21,7 @@ spec:
           command: [ 'sh', '-c', "until nslookup redis-service.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for redis-service; sleep 2; done" ]
 
       containers:
-        - image: mukulmantosh/ecommerce-fastapi:latest
+        - image: <DOCKER_IMAGE_URL>
           command: ['celery', '-A', 'main.celery', 'worker', '-l', 'info']
           envFrom:
             - secretRef:
