@@ -15,7 +15,7 @@ spec:
   accessModes:
     - ReadWriteMany
   local:
-    path: /run/desktop/mnt/host/e/postgres-data   # <-- if running with docker desktop in windows
+    path: /run/desktop/mnt/host/e/postgres-data   # <-- if running with docker desktop in windows (pointing to "e" drive)
   nodeAffinity:
     required:
       nodeSelectorTerms:
