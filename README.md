@@ -1,6 +1,7 @@
 # FastAPI Tutorial Series
 
 ![stack](./misc/images/stack.png)
+![stack_logo](https://gist.github.com/mukulmantosh/d68428973c1a368ecc6f3781144abca8)
 
 
 Welcome to the FastAPI & Kubernetes Tutorial Series with PyCharm & AWS EKS.
