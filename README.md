@@ -1,6 +1,5 @@
 # FastAPI Tutorial Series
 
-![stack](./misc/images/stack.png)
 ![stack_logo](https://gist.githubusercontent.com/mukulmantosh/d68428973c1a368ecc6f3781144abca8/raw/044c5e7b4e86d39c815d575ad63c56864e2a7dda/stack.png)
 
 
